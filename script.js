@@ -117,8 +117,8 @@ audio.addEventListener('ended', () => {
 });
 
 // Daftar otomatis 155 foto slideshow (slideshow-001.jpeg s.d. slideshow-155.jpeg)
-const photoFiles = Array.from({length: 155}, (_, index) => {
-  const num = String(index + 1).padStart(3, '0');
+const photoFiles = Array.from({length: 146}, (_, index) => {
+  const num = String(index + 10).padStart(3, '0');
   return `assets/slideshow-${num}.jpeg`;
 });
 
