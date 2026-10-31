@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+:root{--bg:#100a17;--pink:#ff8fca;--pink2:#ffb5dc;--text:#fff2fb;--muted:#d7b9d0;--panel:rgba(54,27,57,.68);--line:rgba(255,157,214,.42)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 105%,#63315f 0%,#25142f 35%,#100a17 75%);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,4,16,.18),rgba(10,4,16,.05));z-index:-1}
+.stars{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(2px 2px at 10% 20%,#fff 45%,transparent 55%),radial-gradient(2px 2px at 70% 15%,#ffb5dc 45%,transparent 55%),radial-gradient(1px 1px at 35% 60%,#fff 45%,transparent 55%),radial-gradient(2px 2px at 85% 75%,#ffb5dc 45%,transparent 55%),radial-gradient(1px 1px at 55% 35%,#fff 45%,transparent 55%);background-size:260px 230px;opacity:.65;animation:twinkle 5s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.28;transform:translateY(-5px)}}
+.topbar{height:42px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:0 15px;position:relative;z-index:3;background:rgba(17,8,22,.48);backdrop-filter:blur(12px)}
+.dot{width:8px;height:8px;border-radius:50%;background:#ffb7dc;box-shadow:0 0 8px #ff9bd2}
+.topbar-title{margin:auto;font-size:.76rem;letter-spacing:.08em;color:#f5c7e3}
+.music-toggle{border:1px solid var(--line);border-radius:20px;padding:6px 11px;background:#381b39;color:#ffe9f7;cursor:pointer;font:inherit;font-size:.75rem}
+main{width:100%;min-height:calc(100vh - 112px);display:grid;place-items:center;padding:20px 16px 45px}
+.screen{width:min(100%,760px);min-height:570px;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;animation:appear .6s ease both;position:relative}
+.screen.active{display:flex}
+@keyframes appear{from{opacity:0;transform:translateY(14px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+.eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.17em;color:var(--pink2);margin:0 0 14px}
+h1,h2,h3{font-family:'Playfair Display',serif;margin:0;text-shadow:0 0 24px rgba(255,116,195,.28)}
+h1{font-size:clamp(2.7rem,8vw,5.6rem);line-height:1.05;font-style:italic}
+h1 span{font-size:1.2em;color:var(--pink);text-shadow:0 0 22px rgba(255,116,195,.65)}
+h2{font-size:clamp(2rem,6vw,3.35rem);margin-bottom:13px}
+h2 span{color:var(--pink)}
+.subtitle{font-family:'Playfair Display',serif;font-style:italic;color:#ffd5ed;font-size:1.15rem;margin:9px 0 0}
+.hint,.section-note{color:var(--muted);font-size:.92rem}
+.gift-wrap{height:230px;width:260px;display:grid;place-items:center;position:relative;margin:8px 0 0;cursor:pointer;perspective:700px}
+.gift-glow{position:absolute;width:205px;height:105px;border-radius:50%;background:#ff74c5;filter:blur(40px);opacity:.32;bottom:20px}
+.gift-box{position:relative;width:164px;height:130px;transform-style:preserve-3d;filter:drop-shadow(0 15px 16px rgba(0,0,0,.32));transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.box-front{position:absolute;bottom:0;left:0;width:164px;height:102px;background:linear-gradient(135deg,#ffb5dc,#e75d9e);border:1px solid #ffd4eb;border-radius:4px 4px 12px 12px;box-shadow:inset 0 0 20px rgba(255,255,255,.3);display:grid;place-items:center;font-size:2.8rem;color:#fff}
+.box-ribbon{position:absolute;left:69px;bottom:0;width:27px;height:102px;background:linear-gradient(90deg,#fff0fa,#ff8ac7,#ffd8ed)}
+.box-lid{position:absolute;z-index:2;left:-9px;top:5px;width:182px;height:34px;border-radius:6px;background:linear-gradient(135deg,#ffd9ed,#ff87c6);border:1px solid #fff0fa;box-shadow:0 5px 8px #170b20;transform-origin:left center;transition:transform .75s ease}
+.bow{position:absolute;top:-22px;left:66px;width:48px;height:28px}
+.bow:before,.bow:after{content:"";position:absolute;width:26px;height:23px;border:6px solid #ffacd7;border-radius:80% 20% 80% 20%;transform:rotate(25deg);box-shadow:0 0 8px #ff8fca}
+.bow:after{left:19px;transform:scaleX(-1) rotate(25deg)}
+.gift-wrap.opened .box-lid{transform:translate(-25px,-55px) rotate(-25deg)}
+.gift-wrap.opened .gift-box{transform:translateY(8px) rotateX(-4deg)}
+.gift-sparkle{position:absolute;color:#ffb9df;font-size:2rem;animation:float 2.6s ease-in-out infinite}
+.sparkle-one{top:20px;left:24px}.sparkle-two{right:22px;bottom:45px;animation-delay:.8s}
+@keyframes float{50%{transform:translateY(-13px) rotate(12deg)}}
+.primary-btn{border:1px solid #ffd0e9;border-radius:999px;padding:13px 24px;color:#fff7fc;font-weight:700;letter-spacing:.02em;background:linear-gradient(110deg,#a93878,#e66cb1);box-shadow:0 0 22px rgba(255,105,189,.25),inset 0 1px rgba(255,255,255,.28);cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:16px}
+.primary-btn:hover{transform:translateY(-2px);box-shadow:0 0 28px rgba(255,105,189,.5)}
+.letter-card{position:relative;width:min(100%,520px);background:linear-gradient(145deg,#ffe1ef,#f6b6d4);color:#512440;padding:35px clamp(22px,6vw,48px) 30px;border-radius:5px 5px 18px 5px;box-shadow:0 18px 45px #08050c88;transform:rotate(-1deg);text-align:left;margin:16px 0 12px}
+.letter-card:after{content:"";position:absolute;bottom:0;right:0;border-style:solid;border-width:0 0 30px 30px;border-color:transparent transparent #df8db8 transparent}
+.letter-tape{position:absolute;top:-10px;left:42%;width:90px;height:24px;background:#ffc8e4b8;transform:rotate(3deg)}
+.letter-to,.letter-sign{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem}
+.letter-body{line-height:1.9;min-height:150px;white-space:pre-line;font-size:1rem}
+.letter-sign{text-align:right;margin-bottom:0}
+.polaroids{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:30px 0 18px}
+.polaroid{width:clamp(120px,27vw,170px);min-height:185px;padding:10px 10px 16px;background:#fff0f8;color:#60334e;border:0;box-shadow:0 10px 25px #0005;cursor:pointer;display:flex;flex-direction:column;gap:12px;align-items:center;font-family:'Playfair Display',serif;font-style:italic;transition:transform .3s}
+.polaroid:hover{transform:rotate(0) translateY(-7px) scale(1.04)}
+.tilt-left{transform:rotate(-6deg)}.tilt-right{transform:rotate(5deg) translateY(8px)}
+.photo-icon{width:100%;height:125px;display:grid;place-items:center;background:linear-gradient(145deg,#6d3a66,#d96ba7);font-size:3.3rem;color:#ffd5ed;text-shadow:0 0 15px #fff}
+.memory-note{max-width:500px;line-height:1.8;color:#f4cfe4}
+.record{width:165px;height:165px;border-radius:50%;margin:25px 0;background:repeating-radial-gradient(circle,#211624 0 3px,#39233b 4px 5px,#160f1b 6px 9px);border:5px solid #352239;display:grid;place-items:center;color:#ffb1dc;font-size:2.2rem;box-shadow:0 0 30px #ff8fca30;animation:spin 8s linear infinite}
+.record:before{content:"";position:absolute;width:45px;height:45px;border-radius:50%;background:#e975b2;border:4px solid #ffcee8}
+.record{isolation:isolate}.record:before{z-index:-1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.player-card{width:min(100%,420px);padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:20px;display:grid;grid-template-columns:52px 1fr;gap:10px 14px;text-align:left;backdrop-filter:blur(10px)}
+.track-art{width:52px;height:52px;border-radius:12px;background:linear-gradient(145deg,#ffb9dd,#8d3c7a);display:grid;place-items:center;font-size:1.6rem}
+.track-info{display:flex;flex-direction:column;justify-content:center;gap:4px}.track-info small{color:var(--muted)}
+.audio-help{grid-column:1/-1;color:#e3c2d9;font-size:.78rem;line-height:1.6;margin:5px 0}
+.audio-controls{grid-column:1/-1;display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.8rem}
+.play-btn{border:0;border-radius:50%;width:42px;height:42px;background:#ffacd7;color:#35172c;cursor:pointer;font-size:1rem}
+.cake-area{height:250px;width:100%;display:grid;place-items:center;margin:5px 0 0}
+.cake{width:245px;height:190px;position:relative;filter:drop-shadow(0 12px 20px #0006)}
+.cake-bottom{position:absolute;bottom:17px;left:18px;width:210px;height:70px;background:linear-gradient(90deg,#d85b9e,#ffacd6 50%,#d65b9b);border-radius:12px 12px 30px 30px;border-bottom:8px solid #b74785}
+.cake-middle{position:absolute;bottom:75px;left:31px;width:184px;height:55px;background:linear-gradient(90deg,#ffb9d9,#fff0f8,#ffaad5);border-radius:12px 12px 18px 18px}
+.icing{position:absolute;bottom:117px;left:25px;width:196px;height:28px;background:#fff0f8;border-radius:50% 50% 8px 8px;z-index:2}
+.icing:after{content:"";position:absolute;top:10px;left:15px;width:15px;height:25px;background:#fff0f8;border-radius:0 0 10px 10px;box-shadow:44px 4px #fff0f8,91px -1px #fff0f8,137px 3px #fff0f8}
+.cake-top{position:absolute;z-index:3;bottom:94px;left:77px;width:92px;height:47px;background:#ffcee5;border:2px solid #fff0f8;border-radius:50%;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:.8rem;color:#9b376e;line-height:1.05;transform:rotate(-4deg)}
+.candle{position:absolute;z-index:4;bottom:140px;width:9px;height:37px;border-radius:3px;background:repeating-linear-gradient(135deg,#fff 0 5px,#ff75b9 5px 10px)}
+.candle-a{left:78px}.candle-b{left:117px;bottom:146px}.candle-c{left:157px}
+.candle i{position:absolute;top:-15px;left:0;width:9px;height:14px;background:radial-gradient(ellipse at 50% 75%,#fff8b8 0 20%,#ffb44c 45%,#ff5c8b 75%);border-radius:50% 50% 45% 45%;filter:drop-shadow(0 0 7px #ffb34d);animation:flicker .45s infinite alternate}
+@keyframes flicker{to{transform:rotate(5deg) scale(.9);opacity:.85}}
+.cake-plate{position:absolute;bottom:3px;left:0;width:245px;height:25px;background:linear-gradient(#fff0fa,#e18cbd);border-radius:50%;border-bottom:4px solid #b95b94}
+.cake.blown .candle i{display:none}
+.wish-message{min-height:26px;color:#ffd3e9;line-height:1.6}
+.secret-envelope{position:relative;width:240px;height:145px;background:linear-gradient(145deg,#f9b5d8,#e66fae);border-radius:8px;margin:35px auto 20px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px;color:#67274e;cursor:pointer;box-shadow:0 15px 35px #0005;transition:transform .4s}
+.envelope-flap{position:absolute;top:0;left:0;width:0;height:0;border-left:120px solid transparent;border-right:120px solid transparent;border-top:85px solid #ffdbed;filter:drop-shadow(0 3px 2px #b85a8e)}
+.envelope-heart{position:absolute;top:49px;font-size:2.5rem;color:#fff6fb;text-shadow:0 0 10px #ff4eab}
+.secret-envelope span{position:relative;z-index:1;font-size:.8rem}
+.secret-card{max-width:520px;padding:30px;background:rgba(255,224,240,.96);color:#54213f;border-radius:16px;line-height:1.8;box-shadow:0 15px 40px #0005;animation:appear .6s ease}
+.secret-card h3{font-size:1.65rem;color:#a23a77;margin-bottom:15px}
+.secret-card strong{display:block;margin-top:18px;color:#a23a77}
+.hidden{display:none!important}
+.nav-dots{display:flex;justify-content:center;gap:12px;padding:0 10px 15px}
+.nav-dot{width:9px;height:9px;border-radius:50%;border:1px solid #ffb5dc;background:transparent;cursor:pointer;padding:0}
+.nav-dot.selected{background:#ff9ed0;box-shadow:0 0 12px #ff8fca;transform:scale(1.2)}
+footer{text-align:center;padding:0 10px 20px;color:#c79cba;font-size:.72rem;letter-spacing:.08em}
+.floating-hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.floating-heart{position:absolute;bottom:-30px;color:#ff9fd0;opacity:0;animation:rise 7s linear forwards;text-shadow:0 0 12px #ff8fca}
+@keyframes rise{10%{opacity:.7}90%{opacity:.5}100%{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@media(max-width:520px){main{padding:18px 15px 35px}.screen{min-height:540px}.gift-wrap{transform:scale(.9);margin:-2px 0}.letter-card{padding:28px 23px}.polaroids{gap:9px}.polaroid{min-height:155px;padding:8px 8px 13px;font-size:.78rem}.photo-icon{height:100px}.record{width:135px;height:135px}.topbar-title{font-size:.66rem}.player-card{padding:14px}.cake{transform:scale(.9)}}
+
+/* Foto kenangan yang sudah ditambahkan */
+.memory-photo{width:100%;height:125px;object-fit:cover;display:block;background:#f5c4df;border-radius:2px}
+.polaroid span{display:block;text-align:center}
+@media(max-width:520px){.memory-photo{height:100px}}
+
+
+/* Romantic memory slideshow and photo picker */
+.memory-movie{width:min(100%,560px);margin:25px auto 10px;padding:18px;background:rgba(45,20,48,.72);border:1px solid var(--line);border-radius:24px;box-shadow:0 15px 40px #0004;text-align:center}
+.movie-label{font-family:'Playfair Display',serif;font-size:1.35rem;color:#ffc2e2;margin:0 0 5px}
+.movie-caption{font-size:.82rem;color:var(--muted);line-height:1.6;margin:0 0 15px}
+.slideshow-frame{position:relative;width:100%;aspect-ratio:4/3;max-height:390px;overflow:hidden;border:3px solid #ffd4eb;border-radius:18px;background:#2b172c;box-shadow:0 0 24px #ff8fca28}
+.slideshow-frame img{width:100%;height:100%;object-fit:contain;background:#160e1b;display:block}
+.slideshow-frame img.photo-fade{animation:photoFade .3s ease both}
+@keyframes photoFade{from{opacity:.3;transform:scale(1.035)}to{opacity:1;transform:scale(1)}}
+.slideshow-shade{position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(12,5,15,.8));pointer-events:none}
+.slideshow-heart{position:absolute;right:14px;top:10px;color:#ffc2e2;font-size:1.7rem;text-shadow:0 0 12px #ff64b4}
+#slideshowCaption{position:absolute;bottom:12px;left:12px;right:12px;margin:0;color:#fff4fb;font-family:'Playfair Display',serif;font-style:italic;text-shadow:0 2px 8px #000;font-size:1rem}
+.slideshow-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:13px 0 20px}
+.mini-btn{border:1px solid var(--line);border-radius:999px;background:#301a35;color:#ffeafa;padding:9px 13px;font:inherit;font-size:.75rem;cursor:pointer}
+.mini-btn.accent{background:linear-gradient(110deg,#a93878,#e66cb1);border-color:#ffd0e9}
+.photo-picker-head{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;color:#ffe7f5;font-size:.85rem;margin-bottom:10px}
+.text-btn{border:0;background:transparent;color:#ffb5dc;text-decoration:underline;cursor:pointer;font:inherit;font-size:.75rem}
+.photo-picker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-height:300px;overflow:auto;padding:3px}
+.photo-choice{position:relative;display:block;border:1px solid #87516f;border-radius:10px;overflow:hidden;aspect-ratio:1/1;cursor:pointer;background:#1b1020}
+.photo-choice input{position:absolute;z-index:2;top:5px;left:5px;width:17px;height:17px;accent-color:#ff7bbb}
+.photo-choice img{width:100%;height:100%;object-fit:cover;display:block;opacity:.75;transition:opacity .2s}
+.photo-choice input:checked+img{opacity:1;outline:2px solid #ff91c9;outline-offset:-3px}
+.photo-choice span{position:absolute;right:5px;bottom:4px;font-size:.65rem;color:white;background:#160a19b8;border-radius:10px;padding:2px 5px}
+.picker-help{font-size:.72rem;line-height:1.6;color:var(--muted);margin:10px 0 0}
+@media(max-width:520px){.memory-movie{padding:12px}.photo-picker{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.mini-btn{padding:8px 10px;font-size:.7rem}.slideshow-frame{aspect-ratio:3/4;max-height:390px}}
+
+/* Clean memory gallery and automatic slideshow controls */
+.polaroid .memory-photo + span{display:none}
+.photo-picker-head,.photo-picker,.picker-help{display:none!important}
