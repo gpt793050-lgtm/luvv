@@ -116,15 +116,11 @@ audio.addEventListener('ended', () => {
   stopSlideshow();
 });
 
-// Daftar foto yang aman dan sesuai dengan file yang ada di folder assets saat ini
-const photoFiles = [
-  'assets/slideshow-010.jpeg',
-  'assets/slideshow-011.jpeg',
-  'assets/slideshow-012.jpeg',
-  'assets/slideshow-013.jpeg',
-  'assets/slideshow-014.jpeg',
-  'assets/slideshow-015.jpeg'
-];
+// Membuat daftar foto otomatis mulai dari slideshow-010.jpeg seterusnya
+const photoFiles = Array.from({length: 146}, (_, index) => {
+  const num = String(index + 10).padStart(3, '0'); // Dimulai dari 010, 011, dst.
+  return `assets/slideshow-${num}.jpeg`;
+});
 
 const slideshowImage = document.getElementById('slideshowImage');
 const slideshowToggle = document.getElementById('slideshowToggle');
