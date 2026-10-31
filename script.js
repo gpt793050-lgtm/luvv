@@ -141,7 +141,7 @@ function startSlideshow() {
   showPhoto(photoIndex);
   slideshowToggle.textContent = 'Ⅱ Jeda slideshow';
   // Interval 2.5 detik (2500ms) agar stabil saat di-hosting online
-  slideshowTimer = setInterval(() => showPhoto(photoIndex + 1), 2500);
+  slideshowTimer = setInterval(() => showPhoto(photoIndex + 1), 4000);
 }
 
 function stopSlideshow() {
