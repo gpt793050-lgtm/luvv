@@ -116,11 +116,15 @@ audio.addEventListener('ended', () => {
   stopSlideshow();
 });
 
-// Daftar otomatis 155 foto slideshow (slideshow-001.jpeg s.d. slideshow-155.jpeg)
-const photoFiles = Array.from({length: 146}, (_, index) => {
-  const num = String(index + 10).padStart(3, '0');
-  return `assets/slideshow-${num}.jpeg`;
-});
+// Daftar foto yang aman dan sesuai dengan file yang ada di folder assets saat ini
+const photoFiles = [
+  'assets/slideshow-010.jpeg',
+  'assets/slideshow-011.jpeg',
+  'assets/slideshow-012.jpeg',
+  'assets/slideshow-013.jpeg',
+  'assets/slideshow-014.jpeg',
+  'assets/slideshow-015.jpeg'
+];
 
 const slideshowImage = document.getElementById('slideshowImage');
 const slideshowToggle = document.getElementById('slideshowToggle');
@@ -130,7 +134,7 @@ let slideshowTimer = null;
 function showPhoto(index) {
   photoIndex = ((index % photoFiles.length) + photoFiles.length) % photoFiles.length;
   slideshowImage.classList.remove('photo-fade');
-  void slideshowImage.offsetWidth; // Reset animasi CSS
+  void slideshowImage.offsetWidth; 
   slideshowImage.src = photoFiles[photoIndex];
   slideshowImage.alt = `Kenangan kita ${photoIndex + 1}`;
   slideshowImage.classList.add('photo-fade');
@@ -140,8 +144,7 @@ function startSlideshow() {
   if (slideshowTimer) return;
   showPhoto(photoIndex);
   slideshowToggle.textContent = 'Ⅱ Jeda slideshow';
-  // Interval 2.5 detik (2500ms) agar stabil saat di-hosting online
-  slideshowTimer = setInterval(() => showPhoto(photoIndex + 1), 4000);
+  slideshowTimer = setInterval(() => showPhoto(photoIndex + 1), 2500);
 }
 
 function stopSlideshow() {
