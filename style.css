@@ -96,32 +96,18 @@ footer{text-align:center;padding:0 10px 20px;color:#c79cba;font-size:.72rem;lett
 .polaroid span{display:block;text-align:center}
 @media(max-width:520px){.memory-photo{height:100px}}
 
-
 /* Romantic memory slideshow and photo picker */
 .memory-movie{width:min(100%,560px);margin:25px auto 10px;padding:18px;background:rgba(45,20,48,.72);border:1px solid var(--line);border-radius:24px;box-shadow:0 15px 40px #0004;text-align:center}
 .movie-label{font-family:'Playfair Display',serif;font-size:1.35rem;color:#ffc2e2;margin:0 0 5px}
 .movie-caption{font-size:.82rem;color:var(--muted);line-height:1.6;margin:0 0 15px}
 .slideshow-frame{position:relative;width:100%;aspect-ratio:4/3;max-height:390px;overflow:hidden;border:3px solid #ffd4eb;border-radius:18px;background:#2b172c;box-shadow:0 0 24px #ff8fca28}
-.slideshow-frame img{width:100%;height:100%;object-fit:contain;background:#160e1b;display:block}
-.slideshow-frame img.photo-fade{animation:photoFade .3s ease both}
-@keyframes photoFade{from{opacity:.3;transform:scale(1.035)}to{opacity:1;transform:scale(1)}}
+.slideshow-frame img{width:100%;height:100%;object-fit:contain;background:#160e1b;display:block;transition:opacity 0.6s ease-in-out}
+.slideshow-frame img.photo-fade{animation:photoFade 0.6s ease-in-out both}
+@keyframes photoFade{from{opacity:0.2}to{opacity:1}}
 .slideshow-shade{position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(12,5,15,.8));pointer-events:none}
 .slideshow-heart{position:absolute;right:14px;top:10px;color:#ffc2e2;font-size:1.7rem;text-shadow:0 0 12px #ff64b4}
 #slideshowCaption{position:absolute;bottom:12px;left:12px;right:12px;margin:0;color:#fff4fb;font-family:'Playfair Display',serif;font-style:italic;text-shadow:0 2px 8px #000;font-size:1rem}
 .slideshow-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:13px 0 20px}
 .mini-btn{border:1px solid var(--line);border-radius:999px;background:#301a35;color:#ffeafa;padding:9px 13px;font:inherit;font-size:.75rem;cursor:pointer}
 .mini-btn.accent{background:linear-gradient(110deg,#a93878,#e66cb1);border-color:#ffd0e9}
-.photo-picker-head{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;color:#ffe7f5;font-size:.85rem;margin-bottom:10px}
-.text-btn{border:0;background:transparent;color:#ffb5dc;text-decoration:underline;cursor:pointer;font:inherit;font-size:.75rem}
-.photo-picker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;max-height:300px;overflow:auto;padding:3px}
-.photo-choice{position:relative;display:block;border:1px solid #87516f;border-radius:10px;overflow:hidden;aspect-ratio:1/1;cursor:pointer;background:#1b1020}
-.photo-choice input{position:absolute;z-index:2;top:5px;left:5px;width:17px;height:17px;accent-color:#ff7bbb}
-.photo-choice img{width:100%;height:100%;object-fit:cover;display:block;opacity:.75;transition:opacity .2s}
-.photo-choice input:checked+img{opacity:1;outline:2px solid #ff91c9;outline-offset:-3px}
-.photo-choice span{position:absolute;right:5px;bottom:4px;font-size:.65rem;color:white;background:#160a19b8;border-radius:10px;padding:2px 5px}
-.picker-help{font-size:.72rem;line-height:1.6;color:var(--muted);margin:10px 0 0}
-@media(max-width:520px){.memory-movie{padding:12px}.photo-picker{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.mini-btn{padding:8px 10px;font-size:.7rem}.slideshow-frame{aspect-ratio:3/4;max-height:390px}}
-
-/* Clean memory gallery and automatic slideshow controls */
-.polaroid .memory-photo + span{display:none}
-.photo-picker-head,.photo-picker,.picker-help{display:none!important}
+@media(max-width:520px){.memory-movie{padding:12px}.mini-btn{padding:8px 10px;font-size:.7rem}.slideshow-frame{aspect-ratio:3/4;max-height:390px}}
